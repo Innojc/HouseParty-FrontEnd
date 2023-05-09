@@ -1,3 +1,5 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/routes.dart';
@@ -6,9 +8,13 @@ import 'package:shop_app/theme.dart';
 import 'Cart_models/menuItemsModel.dart';
 import 'Cart_providers/cartProvider.dart';
 import 'Cart_res/menuItems.dart';
+import 'firebase_options.dart';
 
-
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
   MenuItemsModelList =
       menuList.map((e) => MenuItemsModel.fromMap(data: e)).toList();
   runApp(

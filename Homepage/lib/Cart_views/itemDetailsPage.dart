@@ -16,7 +16,7 @@ class ItemDetailsPage extends StatefulWidget {
 class _ItemDetailsPageState extends State<ItemDetailsPage> {
   bool isBookMark = false;
 
-  List quantityList = [];
+  List quantityList = [0];
 
   bool start = true;
 
@@ -34,13 +34,12 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
     if (start) {
       quantityList.clear();
       for (var element in res.items) {
-        quantityList.add(1);
+        quantityList.add(0);
       }
       start = false;
     }
 
     double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
       body: SizedBox(

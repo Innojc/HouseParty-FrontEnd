@@ -140,7 +140,7 @@ class _DetailsPageState extends State<DetailsPage> {
                           children: [
                             IconButton(
                                 onPressed: () {
-                                  if (quantity > 1) {
+                                  if (quantity > 0) {
                                     setState(() {
                                       quantity++;
                                     });

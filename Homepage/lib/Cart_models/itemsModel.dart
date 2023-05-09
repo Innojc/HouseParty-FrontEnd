@@ -25,7 +25,7 @@ class ItemsModel {
       weight: data['weight'],
       detail: data['detail'],
       selectedItem: 1,
-      price: data['prize'],
+      price: data['price'],
     );
   }
 }

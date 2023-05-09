@@ -29,7 +29,7 @@ class SpecialOffers extends StatelessWidget {
                   category: "Food & Beverages",
                   numOfBrands: 379,
                   press: () {
-                    Navigator.of(context).pushNamed('/models_product');
+                    Navigator.of(context).pushNamed("/ItemList");
                   },
               ),
               SpecialOfferCard(

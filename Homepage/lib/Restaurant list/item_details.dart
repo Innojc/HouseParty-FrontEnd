@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
 import 'edit_item.dart';
 
 class ItemDetails extends StatelessWidget {
+
+
   ItemDetails(this.itemId, {Key? key}) : super(key: key) {
     _reference =
         FirebaseFirestore.instance.collection('hotels list').doc(itemId);

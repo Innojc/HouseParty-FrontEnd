@@ -4,6 +4,8 @@ import 'add_item.dart';
 import 'item_details.dart';
 
 class ItemList extends StatelessWidget {
+  static var routeName = "/ItemList";
+
   ItemList({Key? key}) : super(key: key) {
     _stream = _reference.snapshots();
   }

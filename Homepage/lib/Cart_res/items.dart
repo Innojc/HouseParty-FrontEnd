@@ -1,6 +1,6 @@
 List pizzaItems = [
   {
-    'image': 'assets/Cart_asset/Margherita-removebg-preview.png',
+    'image': 'assets/Cart_asset/Margherit-removebg-preview.png',
     'itemName': 'Margherita',
     'rating': '4/5',
     'weight': 200,
@@ -8,7 +8,7 @@ List pizzaItems = [
     'isBookMark': false,
     'detail':
     "A hugely popular margherita, with a deliciously tangy single cheese topping",
-    'prize': 200,
+    'price': 200,
   },
 
 
@@ -21,7 +21,7 @@ List pizzaItems = [
     'detail':
     "The ever-popular Margherita - loaded with extra cheese... oodies of it!",
     'weight': 300,
-    'prize': 500,
+    'price': 500,
   },
   {
     'image': 'assets/Cart_asset/Farmhouse-removebg-preview.png',
@@ -32,7 +32,7 @@ List pizzaItems = [
     'detail':
     "A pizza that goes ballistic on veggies! Check out this mouth watering overload of crunchy, crisp capsicum, succulent mushrooms and fresh tomatoes",
     'weight': 250,
-    'prize': 700,
+    'price': 700,
   },
   {
     'image': 'assets/Cart_asset/Peppy_Paneer-removebg-preview.png',
@@ -43,7 +43,7 @@ List pizzaItems = [
     'detail':
     "Chunky paneer with crisp capsicum and spicy red pepper - quite a mouthful!",
     'weight': 320,
-    'prize': 450,
+    'price': 450,
   },
   {
     'image': 'assets/Cart_asset/Veg_Extravaganz.png',
@@ -53,7 +53,7 @@ List pizzaItems = [
     'detail':
     "A pizza loaded with crunchy onions, crisp capsicum, juicy tomatoes and jalapeno with a liberal sprinkling of exotic Mexican herbs.",
     'weight': 300,
-    'prize': 500,
+    'price': 500,
   },
 ];
 List BiryaniItem = [
@@ -66,7 +66,7 @@ List BiryaniItem = [
     'detailShow': false,
     'detail':
     "Basmathi Rice cooked with premimum Quality Spices with juicy chicken pieces.",
-    'prize': 225,
+    'price': 225,
   },
   {
     'image': 'assets/Cart_asset/img_1.png',
@@ -77,7 +77,7 @@ List BiryaniItem = [
     'detailShow': false,
     'detail':
     "Basmathi Rice cooked with premimum Quality Spices with juicy mutton pieces.",
-    'prize': 325,
+    'price': 325,
   },
 ];
 List dessertsItem = [
@@ -89,7 +89,7 @@ List dessertsItem = [
     'weight': 100,
     'detailShow': false,
     'detail': "Filled with delecious molten chocolate inside.",
-    'prize': 100,
+    'price': 100,
   },
   {
     'image': 'assets/Cart_asset/170046_BMC.png',
@@ -100,7 +100,7 @@ List dessertsItem = [
     'detailShow': false,
     'detail':
     "A Creamy & Chocolaty indulgence with layers of rich, fluffy Butterscotch Cream and delicious Dark Chocolate Cake, topped with crunchy Dark Chocolate morsels - for a perfect dessert treat!",
-    'prize': 200,
+    'price': 200,
   },
 ];
 List pastaItem = [
@@ -113,7 +113,7 @@ List pastaItem = [
     'detailShow': false,
     'detail':
     "Italian Pasta Italian vibes, but it’s cold out and you’re craving soup",
-    'prize': 450,
+    'price': 450,
   },
 ];
 List beveragesItem = [
@@ -126,6 +126,6 @@ List beveragesItem = [
     'detailShow': false,
     'detail':
     "Milk , Tea , Coffee , Sparkling drinks , Juices , Energy drink , Mocktails , Milkshakes",
-    'prize': 50,
+    'price': 50,
   },
 ];

@@ -211,7 +211,7 @@ class _cartPageState extends State<cartPage> {
                                         children: [
                                           IconButton(
                                               onPressed: () {
-                                                if (e.selectedItem > 1) {
+                                                if (e.selectedItem > 0) {
                                                   setState(() {
                                                     e.selectedItem--;
                                                     Provider.of<CartProvider>(

@@ -79,17 +79,17 @@ List<Product> demoProducts = [
     isFavourite: true,
     isPopular: true,
   ),
-  /*Product(
+  Product(
     id: 4,
     images: [
       "assets/images/img_7.png",
     ],
-    *//* colors: [
+    /* colors: [
       Color(0xFFF6625E),
       Color(0xFF836DB8),
       Color(0xFFDECB9C),
       Colors.white,
-    ],*//*
+    ],*/
     title: "ShahGhouse Hotel & Restaurant",
     description: description,
     rating: 4.7,
@@ -101,12 +101,12 @@ List<Product> demoProducts = [
     images: [
       "assets/images/img_9.png",
     ],
-    *//* colors: [
+     /*colors: [
       Color(0xFFF6625E),
       Color(0xFF836DB8),
       Color(0xFFDECB9C),
       Colors.white,
-    ],*//*
+    ],*/
     title: "Lucky Multicuisine",
     description: description,
     rating: 4.1,
@@ -118,12 +118,12 @@ List<Product> demoProducts = [
     images: [
       "assets/images/img_11.png",
     ],
-    *//* colors: [
+    /* colors: [
       Color(0xFFF6625E),
       Color(0xFF836DB8),
       Color(0xFFDECB9C),
       Colors.white,
-    ],*//*
+    ],*/
     title: "Biryani Wala",
     description: description,
     rating: 4.0,
@@ -135,12 +135,12 @@ List<Product> demoProducts = [
     images: [
       "assets/images/img_12.png",
     ],
-    *//* colors: [
+     /*colors: [
       Color(0xFFF6625E),
       Color(0xFF836DB8),
       Color(0xFFDECB9C),
       Colors.white,
-    ],*//*
+    ],*/
     title: "KFC",
     description: description,
     rating: 5.0,
@@ -152,12 +152,12 @@ List<Product> demoProducts = [
     images: [
       "assets/images/img_13.png",
     ],
-    *//* colors: [
+    /* colors: [
       Color(0xFFF6625E),
       Color(0xFF836DB8),
       Color(0xFFDECB9C),
       Colors.white,
-    ],*//*
+    ],*/
     title: "Rice Bowl",
     description: description,
     rating: 4.7,
@@ -169,12 +169,12 @@ List<Product> demoProducts = [
     images: [
       "assets/images/img_14.png",
     ],
-    *//* colors: [
+     /*colors: [
       Color(0xFFF6625E),
       Color(0xFF836DB8),
       Color(0xFFDECB9C),
       Colors.white,
-    ],*//*
+    ],*/
     title: "Fishland Express",
     description: description,
     rating: 4.0,
@@ -186,12 +186,12 @@ List<Product> demoProducts = [
     images: [
       "assets/images/img_15.png",
     ],
-    *//* colors: [
+    /* colors: [
       Color(0xFFF6625E),
       Color(0xFF836DB8),
       Color(0xFFDECB9C),
       Colors.white,
-    ],*//*
+    ],*/
     title: "Green Bawarchi Restaurant",
     description: description,
     rating: 3.9,
@@ -203,12 +203,12 @@ List<Product> demoProducts = [
     images: [
       "assets/images/img_16.png",
     ],
-    *//* colors: [
+    /* colors: [
       Color(0xFFF6625E),
       Color(0xFF836DB8),
       Color(0xFFDECB9C),
       Colors.white,
-    ],*//*
+    ],*/
     title: "Hyderabad Chefs",
     description: description,
     rating: 4.9,
@@ -220,18 +220,18 @@ List<Product> demoProducts = [
     images: [
       "assets/images/img_17.png",
     ],
-    *//* colors: [
+    /* colors: [
       Color(0xFFF6625E),
       Color(0xFF836DB8),
       Color(0xFFDECB9C),
       Colors.white,
-    ],*//*
+    ],*/
     title: "Cake Zone",
     description: description,
     rating: 4.1,
     isFavourite: true,
     isPopular: true,
-  ),*/
+  ),
 
 ];
 

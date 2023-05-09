@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "888157104966",
-    "project_id": "updatedhomepage2",
-    "storage_bucket": "updatedhomepage2.appspot.com"
+    "project_number": "66870036552",
+    "project_id": "house-party-001",
+    "storage_bucket": "house-party-001.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:888157104966:android:51aa78c1044bb83911d347",
+        "mobilesdk_app_id": "1:66870036552:android:6994ba9915785f1b50707d",
         "android_client_info": {
           "package_name": "com.example.untitled1"
         }
       },
       "oauth_client": [
         {
-          "client_id": "888157104966-q9mtqm7jpvml7i8srpnr7hl76n4kgeud.apps.googleusercontent.com",
+          "client_id": "66870036552-0mjlbptebdj7m6ta7uaen1s6skbf9rca.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyARXT2r-NsUd5f6O5TsuasMJNhAcRr7RJA"
+          "current_key": "AIzaSyAAk_3sZftubHg0aOJl2n2yqTOgNnhfBzg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "888157104966-oknfo3jm680g5shou5vg4lok58b5sv2a.apps.googleusercontent.com",
+              "client_id": "66870036552-0mjlbptebdj7m6ta7uaen1s6skbf9rca.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

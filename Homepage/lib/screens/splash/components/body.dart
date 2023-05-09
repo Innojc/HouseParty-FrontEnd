@@ -19,7 +19,7 @@ class _BodyState extends State<Body> {
       "text": "Welcome to HouseParty!",
       "image": "assets/images/splash_1.png"
     },
-   {
+   /*{
       "text":
           "Enjoy the way you want",
       "image": "assets/images/splash_2.png"
@@ -27,7 +27,7 @@ class _BodyState extends State<Body> {
     {
       "text": "We create..You celebrate!",
       "image": "assets/images/splash_3.png"
-    },
+    },*/
   ];
   @override
   Widget build(BuildContext context) {

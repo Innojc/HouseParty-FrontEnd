@@ -7,6 +7,8 @@ class Cart {
   final int numOfItem;
 
   Cart({required this.product, required this.numOfItem});
+
+  static dart() {}
 }
 
 // Demo data for our cart

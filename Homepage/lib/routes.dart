@@ -1,4 +1,5 @@
 
+
 import 'package:flutter/widgets.dart';
 import 'package:shop_app/Cart_views/cartPage.dart';
 import 'package:shop_app/Cart_views/detailsPage.dart';
@@ -37,5 +38,4 @@ final Map<String, WidgetBuilder> routes = {
   cartPage.routeName: (context) => cartPage(),
   DetailsPage.routeName: (context) => DetailsPage(),
   cartPage.routeName: (context) => cartPage(),
-
 };

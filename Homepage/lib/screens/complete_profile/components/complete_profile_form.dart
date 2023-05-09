@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/custom_surfix_icon.dart';
 import 'package:shop_app/components/default_button.dart';
@@ -19,6 +20,41 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   String? lastName;
   String? phoneNumber;
   String? address;
+
+  getFirstname(first) {
+    firstName = first;
+  }
+
+  getLastname(last) {
+    lastName = last;
+  }
+
+  getPhonenumber(phone) {
+    phoneNumber = phone;
+  }
+
+  getAddress(address) {
+    address = address;
+  }
+
+  createData() {
+    print("Account Created");
+
+    DocumentReference documentReference =
+    FirebaseFirestore.instance.collection('SignUp_Details').doc(firstName);
+
+    //create map
+    Map<String, dynamic> users = {
+      "firstName": firstName,
+      "lastname": lastName,
+      "phonenumber": phoneNumber,
+      "Address": address
+    };
+
+    documentReference
+        .set(users)
+        .whenComplete(() => {print("$firstName Created")});
+  }
 
   get kNameNullError => null;
 
@@ -52,9 +88,10 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(40)),
           DefaultButton(
-            text: "continue",
+            text: "Continue",
             press: () {
               if (_formKey.currentState!.validate()) {
+                createData();
                 Navigator.pushNamed(context, OtpScreen.routeName);
               }
             },
@@ -68,10 +105,11 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
     return TextFormField(
       onSaved: (newValue) => address = newValue,
       onChanged: (value) {
+        getAddress(address);
         if (value.isNotEmpty) {
           removeError(error: kAddressNullError);
         }
-        return null;
+        address = value;
       },
       validator: (value) {
         if (value!.isEmpty) {
@@ -82,12 +120,12 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
       },
       decoration: InputDecoration(
         labelText: "Address",
-        hintText: "Enter your phone address",
+        hintText: "Enter your address",
         // If  you are using latest version of flutter then label text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon:
-            CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
+        CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
       ),
     );
   }
@@ -97,10 +135,11 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
       keyboardType: TextInputType.phone,
       onSaved: (newValue) => phoneNumber = newValue,
       onChanged: (value) {
+        getPhonenumber(phoneNumber);
         if (value.isNotEmpty) {
           removeError(error: kPhoneNumberNullError);
         }
-        return null;
+        phoneNumber = value;
       },
       validator: (value) {
         if (value!.isEmpty) {
@@ -110,8 +149,8 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         return null;
       },
       decoration: InputDecoration(
-        labelText: "Phone Number",
-        hintText: "Enter your phone number",
+        labelText: "Mobile Number",
+        hintText: "Enter your Mobile number",
         // If  you are using latest version of flutter then label text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -123,6 +162,9 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   TextFormField buildLastNameFormField() {
     return TextFormField(
       onSaved: (newValue) => lastName = newValue,
+      onChanged: (String last) {
+        getLastname(last);
+      },
       decoration: InputDecoration(
         labelText: "Last Name",
         hintText: "Enter your last name",
@@ -138,16 +180,18 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
     return TextFormField(
       onSaved: (newValue) => firstName = newValue,
       onChanged: (value) {
+        getFirstname(firstName);
         if (value.isNotEmpty) {
           removeError(error: kNameNullError);
         }
-        return null;
+        firstName = value;
       },
       validator: (value) {
         if (value!.isEmpty) {
           addError(error: kNameNullError);
           return "";
         }
+
         return null;
       },
       decoration: InputDecoration(

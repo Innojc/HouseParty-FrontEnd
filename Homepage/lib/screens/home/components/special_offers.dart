@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/Cart_views/cartPage.dart';
+import '../../../models/Product.dart';
 import '../../../size_config.dart';
 import 'section_title.dart';
 
@@ -25,10 +27,13 @@ class SpecialOffers extends StatelessWidget {
           child: Row(
             children: [
               SpecialOfferCard(
-                image: "assets/images/img_1.png",
-                category: "Food & Beverages",
-                numOfBrands: 379,
-                press: () {},
+                  image: "assets/images/img_8.png",
+                  category: "Food & Beverages",
+                  numOfBrands: 379,
+                  press: () {
+                    var restaurants;
+                    Navigator.pushNamed(context,restaurants.routeName);
+                  }
               ),
               SpecialOfferCard(
                 image: "assets/images/Image Banner 3.png",

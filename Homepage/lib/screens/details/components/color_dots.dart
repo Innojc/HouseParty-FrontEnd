@@ -22,15 +22,15 @@ class ColorDots extends StatelessWidget {
           EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
       child: Row(
         children: [
-          ...List.generate(
+         /* ...List.generate(
             product.colors.length,
             (index) => ColorDot(
               color: product.colors[index],
               isSelected: index == selectedColor,
             ),
-          ),
-          Spacer(),
-          RoundedIconBtn(
+          ),*/
+          //Spacer(),
+          /*RoundedIconBtn(
             icon: Icons.remove,
             press: () {},
           ),
@@ -39,7 +39,7 @@ class ColorDots extends StatelessWidget {
             icon: Icons.add,
             showShadow: true,
             press: () {},
-          ),
+          ),*/
         ],
       ),
     );

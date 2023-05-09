@@ -1,5 +1,6 @@
 
-class Product {
+
+class restaurants {
   final int id;
   final String title, description;
   final List<String> images;
@@ -7,7 +8,9 @@ class Product {
   final double rating;
   final bool isFavourite, isPopular;
 
-  Product({
+  static var routeName = "/restaurants";
+
+  restaurants({
     required this.id,
     required this.images,
     //required this.colors,
@@ -23,16 +26,16 @@ class Product {
 
 // Our demo Products
 
-List<Product> demoProducts = [
-  Product(
+List<restaurants> demoProducts = [
+  restaurants(
     id: 1,
-      images: [
+    images: [
       "assets/images/img_4.png",
-     /* "assets/images/ps4_console_white_2.png",
+      /* "assets/images/ps4_console_white_2.png",
       "assets/images/ps4_console_white_3.png",
       "assets/images/ps4_console_white_4.png",*/
     ],
-   /* colors: [
+    /* colors: [
       Color(0xFFF6625E),
       Color(0xFF836DB8),
       Color(0xFFDECB9C),
@@ -45,7 +48,7 @@ List<Product> demoProducts = [
     isFavourite: true,
     isPopular: true,
   ),
-  Product(
+  restaurants(
     id: 2,
     images: [
       "assets/images/img_3.png",
@@ -62,7 +65,7 @@ List<Product> demoProducts = [
     isFavourite: true,
     isPopular: true,
   ),
-  Product(
+  restaurants(
     id: 3,
     images: [
       "assets/images/img_6.png",
@@ -79,159 +82,159 @@ List<Product> demoProducts = [
     isFavourite: true,
     isPopular: true,
   ),
-  /*Product(
+  restaurants(
     id: 4,
     images: [
       "assets/images/img_7.png",
     ],
-    *//* colors: [
+    /* colors: [
       Color(0xFFF6625E),
       Color(0xFF836DB8),
       Color(0xFFDECB9C),
       Colors.white,
-    ],*//*
+    ],*/
     title: "ShahGhouse Hotel & Restaurant",
     description: description,
     rating: 4.7,
     isFavourite: true,
     isPopular: true,
   ),
-  Product(
+  restaurants(
     id: 5,
     images: [
       "assets/images/img_9.png",
     ],
-    *//* colors: [
+    /* colors: [
       Color(0xFFF6625E),
       Color(0xFF836DB8),
       Color(0xFFDECB9C),
       Colors.white,
-    ],*//*
+    ],*/
     title: "Lucky Multicuisine",
     description: description,
     rating: 4.1,
     isFavourite: true,
     isPopular: true,
   ),
-  Product(
+  restaurants(
     id: 6,
     images: [
       "assets/images/img_11.png",
     ],
-    *//* colors: [
+    /* colors: [
       Color(0xFFF6625E),
       Color(0xFF836DB8),
       Color(0xFFDECB9C),
       Colors.white,
-    ],*//*
+    ],*/
     title: "Biryani Wala",
     description: description,
     rating: 4.0,
     isFavourite: false,
     isPopular: true,
   ),
-  Product(
+  restaurants(
     id: 7,
     images: [
       "assets/images/img_12.png",
     ],
-    *//* colors: [
+    /* colors: [
       Color(0xFFF6625E),
       Color(0xFF836DB8),
       Color(0xFFDECB9C),
       Colors.white,
-    ],*//*
+    ],*/
     title: "KFC",
     description: description,
     rating: 5.0,
     isFavourite: true,
     isPopular: true,
   ),
-  Product(
+  restaurants(
     id: 8,
     images: [
       "assets/images/img_13.png",
     ],
-    *//* colors: [
+    /* colors: [
       Color(0xFFF6625E),
       Color(0xFF836DB8),
       Color(0xFFDECB9C),
       Colors.white,
-    ],*//*
+    ],*/
     title: "Rice Bowl",
     description: description,
     rating: 4.7,
     isFavourite: true,
     isPopular: true,
   ),
-  Product(
+  restaurants(
     id: 9,
     images: [
       "assets/images/img_14.png",
     ],
-    *//* colors: [
+    /* colors: [
       Color(0xFFF6625E),
       Color(0xFF836DB8),
       Color(0xFFDECB9C),
       Colors.white,
-    ],*//*
+    ],*/
     title: "Fishland Express",
     description: description,
     rating: 4.0,
     isFavourite: false,
     isPopular: true,
   ),
-  Product(
+  restaurants(
     id: 10,
     images: [
       "assets/images/img_15.png",
     ],
-    *//* colors: [
+    /* colors: [
       Color(0xFFF6625E),
       Color(0xFF836DB8),
       Color(0xFFDECB9C),
       Colors.white,
-    ],*//*
+    ],*/
     title: "Green Bawarchi Restaurant",
     description: description,
     rating: 3.9,
     isFavourite: false,
     isPopular: true,
   ),
-  Product(
+  restaurants(
     id: 11,
     images: [
       "assets/images/img_16.png",
     ],
-    *//* colors: [
+    /* colors: [
       Color(0xFFF6625E),
       Color(0xFF836DB8),
       Color(0xFFDECB9C),
       Colors.white,
-    ],*//*
+    ],*/
     title: "Hyderabad Chefs",
     description: description,
     rating: 4.9,
     isFavourite: true,
     isPopular: true,
   ),
-  Product(
+  restaurants(
     id: 12,
     images: [
       "assets/images/img_17.png",
     ],
-    *//* colors: [
+    /* colors: [
       Color(0xFFF6625E),
       Color(0xFF836DB8),
       Color(0xFFDECB9C),
       Colors.white,
-    ],*//*
+    ],*/
     title: "Cake Zone",
     description: description,
     rating: 4.1,
     isFavourite: true,
     isPopular: true,
-  ),*/
+  ),
 
 ];
 

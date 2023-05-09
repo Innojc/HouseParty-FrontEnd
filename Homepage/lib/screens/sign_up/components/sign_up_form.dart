@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/custom_surfix_icon.dart';
 import 'package:shop_app/components/default_button.dart';
@@ -19,6 +20,38 @@ class _SignUpFormState extends State<SignUpForm> {
   String? password;
   String? conform_password;
   bool remember = false;
+
+
+  getEmail(Email) {
+    email = Email;
+  }
+
+  getPassword(Password) {
+    password = Password;
+  }
+
+  getConform_Password(Pass){
+    conform_password = Pass;
+  }
+
+
+  createData() {
+    print("Account Created");
+
+    DocumentReference documentReference = FirebaseFirestore.instance.collection('SignUp_Data').doc(email);
+
+    //create map
+    Map<String, dynamic> users = {
+
+      "Email": email,
+      "Password": password,
+      "Conform_Password":conform_password,
+    };
+
+    documentReference.set(users).whenComplete(() => {print("$email Created")});
+  }
+
+
   final List<String?> errors = [];
 
   void addError({String? error}) {
@@ -54,6 +87,7 @@ class _SignUpFormState extends State<SignUpForm> {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
                 // if all are valid then go to success screen
+                createData();
                 Navigator.pushNamed(context, CompleteProfileScreen.routeName);
               }
             },
@@ -68,6 +102,7 @@ class _SignUpFormState extends State<SignUpForm> {
       obscureText: true,
       onSaved: (newValue) => conform_password = newValue,
       onChanged: (value) {
+        getConform_Password(conform_password);
         if (value.isNotEmpty) {
           removeError(error: kPassNullError);
         } else if (value.isNotEmpty && password == conform_password) {
@@ -101,6 +136,7 @@ class _SignUpFormState extends State<SignUpForm> {
       obscureText: true,
       onSaved: (newValue) => password = newValue,
       onChanged: (value) {
+        getPassword(password);
         if (value.isNotEmpty) {
           removeError(error: kPassNullError);
         } else if (value.length >= 8) {
@@ -134,6 +170,7 @@ class _SignUpFormState extends State<SignUpForm> {
       keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => email = newValue,
       onChanged: (value) {
+        getEmail(email);
         if (value.isNotEmpty) {
           removeError(error: kEmailNullError);
         } else if (emailValidatorRegExp.hasMatch(value)) {

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:shop_app/components/custom_surfix_icon.dart';
@@ -15,27 +16,11 @@ class SignForm extends StatefulWidget {
   _SignFormState createState() => _SignFormState();
 }
 
-class UserCredentials {
-  final String email;
-  final String password;
-
-  UserCredentials(this.email, this.password);
-}
-
 class _SignFormState extends State<SignForm> {
   final _formKey = GlobalKey<FormState>();
 
-  final _usernameController = TextEditingController();
-  final _passwordController = TextEditingController();
-
-  /*Timestamp (){
-    DateTime startDate = DateTime.now().toLocal();
-    var date5 = DateFormat.yMMMd().format(startDate);
-    print("****************Login_Date***************** $date5");
-
-    String tdata = DateFormat("HH:mm:ss").format(DateTime.now());
-    print("****************Login_Time***************** $tdata");
-  }*/
+  final _emailTextController = TextEditingController();
+  final _passwordTextController = TextEditingController();
 
   String? email;
   String? password;
@@ -94,7 +79,6 @@ class _SignFormState extends State<SignForm> {
           DefaultButton(
             text: "Login",
             press: () {
-
               /// Date and Time Stamp Code to Store In database.
               DateTime startdate = DateTime.now().toLocal();
               var date = DateFormat.yMMMMd().format(startdate);
@@ -103,28 +87,21 @@ class _SignFormState extends State<SignForm> {
               FirebaseFirestore.instance
                   .collection('SignIn_Time')
                   .add({'date': date, 'time': time});
-              ///***************************************************
-
-              if (_formKey.currentState!.validate()) {
-                final credentials = UserCredentials(
-                  _usernameController.text,
-                  _passwordController.text,
-                );
-                if (isValidCredentials(credentials)) {
-                  KeyboardUtil.hideKeyboard(context);
-                  Navigator.pushNamed(context, LoginSuccessScreen.routeName);
-                } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Invalid credentials')),
-                  );
-                }
-              }
-              /*if (_formKey.currentState!.validate()) {
-                _formKey.currentState!.save();
-                // if all are valid then go to success screen
-                KeyboardUtil.hideKeyboard(context);
+              ///****************************************************
+              ///#########################  FirebaseAuth  ############################
+              FirebaseAuth.instance
+                  .signInWithEmailAndPassword(
+                  email: _emailTextController.text,
+                  password: _passwordTextController.text)
+                  .then((value) {
                 Navigator.pushNamed(context, LoginSuccessScreen.routeName);
-              }*/
+              }).onError((error, stackTrace) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Invalid credentials')),
+                );
+                print("Error ${error.toString()}");
+              });
+              ///****************************************************
             },
           ),
         ],
@@ -134,7 +111,7 @@ class _SignFormState extends State<SignForm> {
 
   TextFormField buildPasswordFormField() {
     return TextFormField(
-      controller: _passwordController,
+      controller: _passwordTextController,
       obscureText: true,
       onSaved: (newValue) => password = newValue,
       onChanged: (value) {
@@ -168,7 +145,7 @@ class _SignFormState extends State<SignForm> {
 
   TextFormField buildEmailFormField() {
     return TextFormField(
-      controller: _usernameController,
+      controller: _emailTextController,
       keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => email = newValue,
       onChanged: (value) {
@@ -198,10 +175,5 @@ class _SignFormState extends State<SignForm> {
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
       ),
     );
-  }
-
-  bool isValidCredentials(UserCredentials credentials) {
-    return credentials.email == 'innojc@gmail.com' &&
-        credentials.password == 'innojc@123';
   }
 }

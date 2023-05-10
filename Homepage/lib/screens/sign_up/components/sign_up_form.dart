@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:shop_app/components/custom_surfix_icon.dart';
@@ -16,6 +17,9 @@ class SignUpForm extends StatefulWidget {
 }
 
 class _SignUpFormState extends State<SignUpForm> {
+  TextEditingController _passwordTextController = TextEditingController();
+  TextEditingController _emailTextController = TextEditingController();
+  TextEditingController _conform_passwordTextController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   String? email;
   String? password;
@@ -41,11 +45,7 @@ class _SignUpFormState extends State<SignUpForm> {
     var date = DateFormat.yMMMMd().format(startdate);
     String time = DateFormat("HH:mm:ss").format(DateTime.now());
     print(date + "   time  " + time);
-    /*//FirebaseFirestore.instance.collection('SignIn_Time').add({
-      'date': date,
-      'time': time,
-    });*/
-    print("Account Created");
+    print("$email Created");
 
     DocumentReference documentReference = FirebaseFirestore.instance.collection('SignUp_Data').doc(email);
 
@@ -96,12 +96,17 @@ class _SignUpFormState extends State<SignUpForm> {
           DefaultButton(
             text: "Create Account",
             press: () {
-              if (_formKey.currentState!.validate()) {
-                _formKey.currentState!.save();
-                // if all are valid then go to success screen
+              FirebaseAuth.instance
+                  .createUserWithEmailAndPassword(
+                  email: _emailTextController.text,
+                  password: _passwordTextController.text)
+                  .then((value) {
+                print("Account Created");
                 createData();
                 Navigator.pushNamed(context, CompleteProfileScreen.routeName);
-              }
+              }).onError((error, stackTrace) {
+                print("Error ${error.toString()}");
+              });
             },
           ),
         ],
@@ -111,6 +116,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
   TextFormField buildConformPassFormField() {
     return TextFormField(
+      controller: _conform_passwordTextController,
       obscureText: true,
       onSaved: (newValue) => conform_password = newValue,
       onChanged: (value) {
@@ -145,6 +151,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
   TextFormField buildPasswordFormField() {
     return TextFormField(
+      controller: _passwordTextController,
       obscureText: true,
       onSaved: (newValue) => password = newValue,
       onChanged: (value) {
@@ -179,6 +186,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
   TextFormField buildEmailFormField() {
     return TextFormField(
+      controller: _emailTextController,
       keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => email = newValue,
       onChanged: (value) {
@@ -188,7 +196,7 @@ class _SignUpFormState extends State<SignUpForm> {
         } else if (emailValidatorRegExp.hasMatch(value)) {
           removeError(error: kInvalidEmailError);
         }
-        return null;
+        email = value;
       },
       validator: (value) {
         if (value!.isEmpty) {

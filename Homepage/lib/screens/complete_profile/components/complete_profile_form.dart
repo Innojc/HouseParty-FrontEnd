@@ -39,10 +39,8 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
 
   createData() {
     print("Account Created");
-
     DocumentReference documentReference =
     FirebaseFirestore.instance.collection('SignUp_Details').doc(firstName);
-
     //create map
     Map<String, dynamic> users = {
       "firstName": firstName,

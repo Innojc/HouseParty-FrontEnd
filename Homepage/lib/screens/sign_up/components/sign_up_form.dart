@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:shop_app/components/custom_surfix_icon.dart';
 import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/components/form_error.dart';
@@ -36,6 +37,14 @@ class _SignUpFormState extends State<SignUpForm> {
 
 
   createData() {
+    DateTime startdate = DateTime.now().toLocal();
+    var date = DateFormat.yMMMMd().format(startdate);
+    String time = DateFormat("HH:mm:ss").format(DateTime.now());
+    print(date + "   time  " + time);
+    /*//FirebaseFirestore.instance.collection('SignIn_Time').add({
+      'date': date,
+      'time': time,
+    });*/
     print("Account Created");
 
     DocumentReference documentReference = FirebaseFirestore.instance.collection('SignUp_Data').doc(email);
@@ -46,6 +55,9 @@ class _SignUpFormState extends State<SignUpForm> {
       "Email": email,
       "Password": password,
       "Conform_Password":conform_password,
+      "date": date,
+      "time": time,
+
     };
 
     documentReference.set(users).whenComplete(() => {print("$email Created")});

@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:intl/intl.dart';
+
+import '../components/custom_surfix_icon.dart';
+import '../components/default_button.dart';
+import '../components/form_error.dart';
+import '../constants.dart';
+import '../size_config.dart';
 
 class AddItem extends StatefulWidget {
   const AddItem({Key? key}) : super(key: key);
@@ -34,6 +41,9 @@ class _AddItemState extends State<AddItem> {
           child: Column(
             children: [
               const SizedBox(height: 20),
+
+
+
               TextFormField(
                 controller: _controllerName,
                 decoration: const InputDecoration(
@@ -46,7 +56,7 @@ class _AddItemState extends State<AddItem> {
                   return null;
                 },
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               TextFormField(
                 controller: _controllerQuantity,
                 decoration: const InputDecoration(
@@ -59,7 +69,7 @@ class _AddItemState extends State<AddItem> {
                   return null;
                 },
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               TextFormField(
                 controller: _controllerQuantity1,
                 decoration: const InputDecoration(
@@ -72,7 +82,7 @@ class _AddItemState extends State<AddItem> {
                   return null;
                 },
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               TextFormField(
                 controller: _controllerQuantity2,
                 decoration: const InputDecoration(
@@ -85,7 +95,7 @@ class _AddItemState extends State<AddItem> {
                   return null;
                 },
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               TextFormField(
                 controller: _controllerQuantity3,
                 decoration: const InputDecoration(
@@ -98,7 +108,7 @@ class _AddItemState extends State<AddItem> {
                   return null;
                 },
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               TextFormField(
                 controller: _controllerQuantity4,
                 decoration: const InputDecoration(
@@ -134,8 +144,8 @@ class _AddItemState extends State<AddItem> {
 
                       //Add a new item
                       _reference.add(dataToSend);
-                     // _reference.add({FieldValue.serverTimestamp()});
-                      //`FirebaseFirestore.instance.collection('hotels list').add({'timestamp':FieldValue.serverTimestamp()});
+                     //_reference.add({FieldValue.serverTimestamp()});
+                      //FirebaseFirestore.instance.collection('hotels list').add({'timestamp':FieldValue.serverTimestamp()});
                     }
 
                     print("**************** Restaurant Details are Added to Database *****************");

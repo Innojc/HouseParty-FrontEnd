@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:shop_app/components/custom_surfix_icon.dart';
 import 'package:shop_app/components/form_error.dart';
 import 'package:shop_app/helper/keyboard.dart';
@@ -12,6 +14,7 @@ class SignForm extends StatefulWidget {
   @override
   _SignFormState createState() => _SignFormState();
 }
+
 class UserCredentials {
   final String email;
   final String password;
@@ -33,7 +36,6 @@ class _SignFormState extends State<SignForm> {
     String tdata = DateFormat("HH:mm:ss").format(DateTime.now());
     print("****************Login_Time***************** $tdata");
   }*/
-
 
   String? email;
   String? password;
@@ -92,6 +94,16 @@ class _SignFormState extends State<SignForm> {
           DefaultButton(
             text: "Login",
             press: () {
+
+              /// Date and Time Stamp Code to Store In database.
+              DateTime startdate = DateTime.now().toLocal();
+              var date = DateFormat.yMMMMd().format(startdate);
+              String time = DateFormat("HH:mm:ss").format(DateTime.now());
+              print(date + "   time  " + time);
+              FirebaseFirestore.instance
+                  .collection('SignIn_Time')
+                  .add({'date': date, 'time': time});
+              ///***************************************************
 
               if (_formKey.currentState!.validate()) {
                 final credentials = UserCredentials(

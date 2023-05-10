@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'restaurant_css.dart';
 import 'add_item.dart';
 import 'item_details.dart';
+
 
 class ItemList extends StatelessWidget {
   static var routeName = "/ItemList";
@@ -19,7 +21,8 @@ class ItemList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Restaurants List'),
+        title: const Text('Restaurants List',
+        style:TextStyle(color: Colors.orangeAccent,fontSize: 35,fontWeight: FontWeight.bold),),
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: _stream,
@@ -51,7 +54,7 @@ class ItemList extends StatelessWidget {
                   Map thisItem = items[index];
                   //Return the widget for the list items
                   return ListTile(
-                    title: Text('${thisItem['hotel_name']}'),
+                    title: Text('${thisItem['hotel_name']}', style: HeadingStyle),
                     //subtitle: Text('${thisItem['menu']}'),
                     onTap: () {
                       Navigator.of(context).push(

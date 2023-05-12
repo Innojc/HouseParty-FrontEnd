@@ -13,7 +13,7 @@ class ItemList extends StatelessWidget {
   }
 
   final CollectionReference _reference =
-  FirebaseFirestore.instance.collection('hotels list');
+      FirebaseFirestore.instance.collection('hotels list');
 
   late Stream<QuerySnapshot> _stream;
 
@@ -39,12 +39,13 @@ class ItemList extends StatelessWidget {
             List<QueryDocumentSnapshot> documents = querySnapshot.docs;
 
             //Convert the documents to Maps
-            List<Map> items = documents.map((e) =>
-            {
-              'id': e.id,
-              'hotel_name': e['hotel_name'],
-              'menu': e['menu']
-            }).toList();
+            List<Map> items = documents
+                .map((e) => {
+                      'id': e.id,
+                      'hotel_name': e['hotel_name'],
+                      'menu': e['menu']
+                    })
+                .toList();
 
             //Display the list
             return ListView.builder(
@@ -57,10 +58,8 @@ class ItemList extends StatelessWidget {
                     title: Text('${thisItem['hotel_name']}', style: HeadingStyle),
                     //subtitle: Text('${thisItem['menu']}'),
                     onTap: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  ItemDetails(thisItem['id'] )));
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => ItemDetails(thisItem['id'])));
                     },
                   );
                 });

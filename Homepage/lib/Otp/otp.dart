@@ -6,7 +6,10 @@ import '../screens/home/home_screen.dart';
 
 class OTPScreen extends StatefulWidget {
   final String phone;
-  OTPScreen(this.phone);
+  const OTPScreen({Key? key, required this.phone}) : super(key: key);
+
+  static var routeName = "/OTP";
+
   @override
   _OTPScreenState createState() => _OTPScreenState();
 }

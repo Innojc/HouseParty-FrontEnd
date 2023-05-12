@@ -1,4 +1,3 @@
-import 'dart:js';
 
 import 'package:flutter/widgets.dart';
 import 'package:shop_app/Cart_views/cartPage.dart';
@@ -41,5 +40,6 @@ final Map<String, WidgetBuilder> routes = {
   DetailsPage.routeName: (context) => DetailsPage(),
   cartPage.routeName: (context) => cartPage(),
   ItemList.routeName: (context) => ItemList(),
+  OTPScreen.routeName: (context) => OTPScreen(phone: '',),
 
 };

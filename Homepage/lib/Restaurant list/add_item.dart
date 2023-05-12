@@ -131,7 +131,7 @@ class _AddItemState extends State<AddItem> {
                       String itemQuantity2 = _controllerQuantity2.text;
                       String itemQuantity3 = _controllerQuantity3.text;
                       String itemQuantity4 = _controllerQuantity4.text;
-
+                      DocumentReference documentReference = FirebaseFirestore.instance.collection('SignUp_Data').doc(itemName);
                       //Create a Map of data
                       Map<String, String> dataToSend = {
                         'hotel_name': itemName,
@@ -141,11 +141,8 @@ class _AddItemState extends State<AddItem> {
                         'menu3': itemQuantity3,
                         'menu4': itemQuantity4,
                       };
-
                       //Add a new item
                       _reference.add(dataToSend);
-                     //_reference.add({FieldValue.serverTimestamp()});
-                      //FirebaseFirestore.instance.collection('hotels list').add({'timestamp':FieldValue.serverTimestamp()});
                     }
 
                     print("**************** Restaurant Details are Added to Database *****************");

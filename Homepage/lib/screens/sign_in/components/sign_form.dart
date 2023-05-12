@@ -79,15 +79,6 @@ class _SignFormState extends State<SignForm> {
           DefaultButton(
             text: "Login",
             press: () {
-              /// Date and Time Stamp Code to Store In database.
-              DateTime startdate = DateTime.now().toLocal();
-              var date = DateFormat.yMMMMd().format(startdate);
-              String time = DateFormat("HH:mm:ss").format(DateTime.now());
-              print(date + "   time  " + time);
-              FirebaseFirestore.instance
-                  .collection('SignIn_Time')
-                  .add({'date': date, 'time': time});
-              ///****************************************************
               ///#########################  FirebaseAuth  ############################
               FirebaseAuth.instance
                   .signInWithEmailAndPassword(
@@ -95,6 +86,16 @@ class _SignFormState extends State<SignForm> {
                   password: _passwordTextController.text)
                   .then((value) {
                 Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+
+                /// Date and Time Stamp Code to Store In database.
+                DateTime startdate = DateTime.now().toLocal();
+                var date = DateFormat.yMMMMd().format(startdate);
+                String time = DateFormat("HH:mm:ss").format(DateTime.now());
+                print(date + "   time  " + time);
+                FirebaseFirestore.instance
+                    .collection('SignIn_Time')
+                    .add({'date': date, 'time': time});
+                ///****************************************************
               }).onError((error, stackTrace) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('Invalid credentials')),

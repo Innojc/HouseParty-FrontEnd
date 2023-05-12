@@ -10,7 +10,6 @@ import 'package:shop_app/screens/complete_profile/complete_profile_screen.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
 
-
 class SignUpForm extends StatefulWidget {
   @override
   _SignUpFormState createState() => _SignUpFormState();
@@ -19,13 +18,13 @@ class SignUpForm extends StatefulWidget {
 class _SignUpFormState extends State<SignUpForm> {
   TextEditingController _passwordTextController = TextEditingController();
   TextEditingController _emailTextController = TextEditingController();
-  TextEditingController _conform_passwordTextController = TextEditingController();
+  TextEditingController _conform_passwordTextController =
+      TextEditingController();
   final _formKey = GlobalKey<FormState>();
   String? email;
   String? password;
   String? conform_password;
   bool remember = false;
-
 
   getEmail(Email) {
     email = Email;
@@ -35,10 +34,9 @@ class _SignUpFormState extends State<SignUpForm> {
     password = Password;
   }
 
-  getConform_Password(Pass){
+  getConform_Password(Pass) {
     conform_password = Pass;
   }
-
 
   createData() {
     DateTime startdate = DateTime.now().toLocal();
@@ -47,22 +45,20 @@ class _SignUpFormState extends State<SignUpForm> {
     print(date + "   time  " + time);
     print("$email Created");
 
-    DocumentReference documentReference = FirebaseFirestore.instance.collection('SignUp_Data').doc(email);
+    DocumentReference documentReference =
+        FirebaseFirestore.instance.collection('SignUp_Data').doc(email);
 
     //create map
     Map<String, dynamic> users = {
-
       "Email": email,
       "Password": password,
-      "Conform_Password":conform_password,
+      "Conform_Password": conform_password,
       "date": date,
       "time": time,
-
     };
 
     documentReference.set(users).whenComplete(() => {print("$email Created")});
   }
-
 
   final List<String?> errors = [];
 
@@ -98,8 +94,8 @@ class _SignUpFormState extends State<SignUpForm> {
             press: () {
               FirebaseAuth.instance
                   .createUserWithEmailAndPassword(
-                  email: _emailTextController.text,
-                  password: _passwordTextController.text)
+                      email: _emailTextController.text,
+                      password: _passwordTextController.text)
                   .then((value) {
                 print("Account Created");
                 createData();

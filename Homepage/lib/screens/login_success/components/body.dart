@@ -36,10 +36,7 @@ class Body extends StatelessWidget {
               var date = DateFormat.yMMMMd().format(startdate);
               String time = DateFormat("HH:mm:ss").format(DateTime.now());
               print(date + "   time  " + time);
-             /* FirebaseFirestore.instance.collection('SignIn_Time').add({
-                'date': date,
-                'time': time,
-              });*/
+
             },
           ),
         ),
